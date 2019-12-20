@@ -31,7 +31,7 @@ const eventsDashboard = [
   },
   {
     id: '2',
-    title: 'Trip to Punch and Judy Pub',
+    title: 'Trip to Punch and Judy Park',
     date: '2018-03-28',
     category: 'drinks',
     description:
