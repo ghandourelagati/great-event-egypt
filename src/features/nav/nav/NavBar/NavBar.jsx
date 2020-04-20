@@ -1,23 +1,23 @@
 import React, { Component } from 'react';
 import { Menu, Container, Button } from 'semantic-ui-react';
 import { NavLink, Link, withRouter } from 'react-router-dom';
-import SignedOutMenu from './Menus/SignedOutMenu';
-import SignedInMenu from './Menus/SignedInMenu';
+import SignedOutMenu from '../Menus/SignedOutMenu';
+import SignedInMenu from '../Menus/SignedInMenu';
 
 class NavBar extends Component {
   state = {
-    authenticated: false
+    authenticated: false,
   };
 
   handleSignIn = () => {
     this.setState({
-      authenticated: true
+      authenticated: true,
     });
   };
 
   handleSignOut = () => {
     this.setState({
-      authenticated: false
+      authenticated: false,
     });
     this.props.history.push('/');
   };
@@ -29,9 +29,9 @@ class NavBar extends Component {
         <Container>
           <Menu.Item as={Link} to="/" header>
             <img src="/assets/logo.png" alt="logo" />
-            Great Event Egypt
+            Re-vents
           </Menu.Item>
-          <Menu.Item as={NavLink} to="/event" name="Events" />
+          <Menu.Item as={NavLink} to="/events" name="Events" />
           <Menu.Item as={NavLink} to="/test" name="Test" />
           {authenticated && (
             <Menu.Item as={NavLink} to="/people" name="People" />

@@ -1,4 +1,4 @@
-import { createReducer } from '../../app/common/reducerUtil';
+import { createReducer } from '../../app/common/util/reducerUtil';
 import { CREATE_EVENT, DELETE_EVENT, UPDATE_EVENT } from './eventConstants';
 
 const initialState = [
@@ -17,14 +17,14 @@ const initialState = [
       {
         id: 'a',
         name: 'Bob',
-        photoURL: 'https://randomuser.me/api/portraits/men/20.jpg'
+        photoURL: 'https://randomuser.me/api/portraits/men/20.jpg',
       },
       {
         id: 'b',
         name: 'Tom',
-        photoURL: 'https://randomuser.me/api/portraits/men/22.jpg'
-      }
-    ]
+        photoURL: 'https://randomuser.me/api/portraits/men/22.jpg',
+      },
+    ],
   },
   {
     id: '2',
@@ -41,15 +41,15 @@ const initialState = [
       {
         id: 'b',
         name: 'Tom',
-        photoURL: 'https://randomuser.me/api/portraits/men/22.jpg'
+        photoURL: 'https://randomuser.me/api/portraits/men/22.jpg',
       },
       {
         id: 'a',
         name: 'Bob',
-        photoURL: 'https://randomuser.me/api/portraits/men/20.jpg'
-      }
-    ]
-  }
+        photoURL: 'https://randomuser.me/api/portraits/men/20.jpg',
+      },
+    ],
+  },
 ];
 
 export const createEvent = (state, payload) => {
@@ -58,17 +58,17 @@ export const createEvent = (state, payload) => {
 
 export const updateEvent = (state, payload) => {
   return [
-    ...state.filter(event => event.id !== payload.event.id),
-    Object.assign({}, payload.event)
+    ...state.filter((event) => event.id !== payload.event.id),
+    Object.assign({}, payload.event),
   ];
 };
 
 export const deleteEvent = (state, payload) => {
-  return [...state.filter(event => event.id !== payload.eventId)];
+  return [...state.filter((event) => event.id !== payload.eventId)];
 };
 
 export default createReducer(initialState, {
   [CREATE_EVENT]: createEvent,
   [UPDATE_EVENT]: updateEvent,
-  [DELETE_EVENT]: deleteEvent
+  [DELETE_EVENT]: deleteEvent,
 });

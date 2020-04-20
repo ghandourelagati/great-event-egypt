@@ -1,11 +1,12 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
+// eslint-disable-next-line
 import React, { Component } from 'react';
 import { Segment, Item, Icon, List, Button } from 'semantic-ui-react';
+import { Link } from 'react-router-dom';
 import EventListAttendee from './EventListAttendee';
 
-export default class EventListItem extends Component {
+class EventListItem extends Component {
   render() {
-    const { event, onEventOpen, deleteEvent } = this.props;
+    const { event, deleteEvent } = this.props;
     return (
       <Segment.Group>
         <Segment>
@@ -15,7 +16,7 @@ export default class EventListItem extends Component {
               <Item.Content>
                 <Item.Header as="a">{event.title}</Item.Header>
                 <Item.Description>
-                  Hosted by <a href="#">{event.hostedBy}</a>
+                  Hosted by <a>{event.hostedBy}</a>
                 </Item.Description>
               </Item.Content>
             </Item>
@@ -23,14 +24,14 @@ export default class EventListItem extends Component {
         </Segment>
         <Segment>
           <span>
-            <Icon name="clock" /> {event.date} |
+            <Icon name="clock" /> {event.date}|
             <Icon name="marker" /> {event.venue}
           </span>
         </Segment>
         <Segment secondary>
           <List horizontal>
             {event.attendees &&
-              event.attendees.map(attendee => (
+              event.attendees.map((attendee) => (
                 <EventListAttendee key={attendee.id} attendee={attendee} />
               ))}
           </List>
@@ -45,8 +46,8 @@ export default class EventListItem extends Component {
             content="Delete"
           />
           <Button
-            onClick={onEventOpen(event)}
-            as="a"
+            as={Link}
+            to={`/event/${event.id}`}
             color="teal"
             floated="right"
             content="View"
@@ -56,3 +57,5 @@ export default class EventListItem extends Component {
     );
   }
 }
+
+export default EventListItem;

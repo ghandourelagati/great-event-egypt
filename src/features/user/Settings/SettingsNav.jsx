@@ -13,7 +13,7 @@ const SettingsNav = () => {
         <Menu.Item as={NavLink} to="/settings/about">
           About Me
         </Menu.Item>
-        <Menu.Item as={NavLink} to="/settings/photo">
+        <Menu.Item as={NavLink} to="/settings/photos">
           My Photos
         </Menu.Item>
       </Menu>
