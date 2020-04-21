@@ -4,16 +4,16 @@ import { connect } from 'react-redux';
 import { deleteEvent } from '../eventActions';
 import EventList from '../EventList/EventList';
 
-const mapState = (state) => ({
-  events: state.events,
+const mapState = state => ({
+  events: state.events
 });
 
 const actions = {
-  deleteEvent,
+  deleteEvent
 };
 
 class EventDashboard extends Component {
-  handleDeleteEvent = (eventId) => () => {
+  handleDeleteEvent = eventId => () => {
     this.props.deleteEvent(eventId);
   };
 
